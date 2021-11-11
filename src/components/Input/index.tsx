@@ -6,16 +6,16 @@ import {
 } from 'react';
 
 import { useField } from '@unform/core';
-
 import { Container } from './styles';
+import { InputInterface } from '../../types';
 
-const Input = ({ name, icon: Icon, ...rest }) => {
-  const inputRef = useRef(null);
+const Input = ({ name, icon: Icon, ...rest }: InputInterface) => {
+  const inputRef:any = useRef(null);
 
-  const [isFocused, setIsFocused] = useState(false);
-  const [isFilled, setIsFilled] = useState(false);
+  const [isFocused, setIsFocused] = useState<InputInterface['isFocused']>(false);
+  const [isFilled, setIsFilled] = useState<InputInterface['isFilled']>(false);
 
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField } = useField(name || '');
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
