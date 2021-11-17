@@ -1,4 +1,4 @@
-import { IconType } from "react-icons";
+import { IconType } from 'react-icons';
 
 export interface FoodInterface {
   id: number,
@@ -11,5 +11,29 @@ export interface FoodInterface {
 
 export interface InputInterface {
   name: string,
-  icon: IconType
+  icon?: IconType,
+  placeholder?: string
+}
+
+export interface AddFoodInterface {
+  isOpen: boolean,
+  setIsOpen: () => void,
+  handleAddFood: (food: FoodInterface) => void,
+}
+
+export interface ModalEditFoodInterface {
+  isOpen: boolean,
+  setIsOpen: () => void,
+  handleUpdateFood: (food: FoodInterface) => void,
+  editingFood: FoodInterface | undefined,
+}
+
+export interface FoodComponentInterface {
+  food: FoodInterface, 
+  handleEditFood: (food: FoodInterface)=> void, 
+  handleDelete: (id: number) => void
+}
+
+export interface HeaderInterface {
+  openModal: () => void
 }

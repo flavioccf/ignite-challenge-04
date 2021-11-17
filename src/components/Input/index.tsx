@@ -12,8 +12,8 @@ import { InputInterface } from '../../types';
 const Input = ({ name, icon: Icon, ...rest }: InputInterface) => {
   const inputRef:any = useRef(null);
 
-  const [isFocused, setIsFocused] = useState<InputInterface['isFocused']>(false);
-  const [isFilled, setIsFilled] = useState<InputInterface['isFilled']>(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [isFilled, setIsFilled] = useState<boolean>(false);
 
   const { fieldName, defaultValue, registerField } = useField(name || '');
 
